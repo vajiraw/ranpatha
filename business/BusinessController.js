@@ -5,6 +5,7 @@ var business = require('./Business');
 var BusinessType = require('./BusinessType');
 //var logger = require('./logger');
 var logger = require('./../logger');
+var mailer = require('../mail.js')
 
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +23,11 @@ router.post('/', function (req, res) {
             res.status(200).send(business);
         });
 });
+
+
+
+
+
 
 
 // this method use to return instittues that match submot subtype and city {need to include city here}
@@ -58,7 +64,7 @@ router.get('/maintypes', function (req, res) {
 router.get('/:maintype/subtypes/', function (req, res) {
 
     var maintype = req.params.maintype;
-      
+
     BusinessType.find({ main_id: '1000' } ,{ status: 0,_id: 0 } , function (err, businesstype) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(businesstype);
@@ -69,5 +75,5 @@ router.get('/:maintype/subtypes/', function (req, res) {
 
 module.exports = router;
 
-
+//https://gist.github.com/blackfalcon/8428401
 //https://www.youtube.com/watch?v=rUhHScQthio
