@@ -1,31 +1,20 @@
 var nodemailer = require('nodemailer');
-
-// create reusable transport method (opens pool of SMTP connections)
-var smtpTransport = nodemailer.createTransport("SMTP",{
-    service: "Gmail",
-    auth: {
-        user: "gmail.user@gmail.com",
-        pass: "userpass"
-    }
+var transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'wike1911@gmail.com',
+            pass: 'V@753241809'
+        }
 });
+let mailOptions = {
+          from: '"Krunal Lathiya" <wike1911@gmail.com>', // sender address
+          to: 'vajirawke@gmail.com', // list of receivers
+          subject: 'sample', // Subject line
+          text: '2nd test match between SL and SA', // plain text body
+          html: '<b>NodeJS Email Tutorial</b>' // html body
+      };
 
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: "Fred Foo ✔ <wike1911@gmail.com>", // sender address
-    to: "bar@blurdybloop.com, vajirawke@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-}
 
-// send mail with defined transport object
-smtpTransport.sendMail(mailOptions, function(error, response){
-    if(error){
-        console.log(error);
-    }else{
-        console.log("Message sent: " + response.message);
-    }
-
-    // if you don't want to use this transport object anymore, uncomment following line
-    //smtpTransport.close(); // shut down the connection pool, no more messages
-});
+module.export = transporter;
