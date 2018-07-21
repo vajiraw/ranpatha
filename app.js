@@ -17,4 +17,7 @@ app.use('/itemtypes', ItemTypeController);
 var BusinessController = require('./business/BusinessController');
 app.use('/business', BusinessController);
 
+var sendMail = require('./sendmail');
+app.use('/mailer', sendMail);
+
 module.exports = app;
