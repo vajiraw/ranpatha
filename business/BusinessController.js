@@ -5,7 +5,7 @@ var business = require('./Business');
 var BusinessType = require('./BusinessType');
 //var logger = require('./logger');
 var logger = require('./../logger');
-var mailer = require('../mail.js')
+
 
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -77,3 +77,5 @@ module.exports = router;
 
 //https://gist.github.com/blackfalcon/8428401
 //https://www.youtube.com/watch?v=rUhHScQthio
+
+// https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
