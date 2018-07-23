@@ -25,6 +25,16 @@ router.get('/:location/serviceTypes', function (req, res) {
   });
 });
 
+// get all persons for service and location
+// http://192.168.1.2:3000/services/horana/acc
+router.get('/:location/:serviceTypes', function (req, res) {
+  console.log('http://192.168.1.2:3000/services/horana/acc ' );
+  employment.find({location: req.params.location,service:req.params.serviceTypes}, function (err, employments) {
+      if (err) return res.status(500).send("There was a problem finding the users.");
+      res.status(200).send(employments);
+  });
+});
+
 
 
 router.post('/', function (req, res) {
@@ -44,7 +54,7 @@ router.post('/', function (req, res) {
         });
 });
 
-
+// this is test method to get all services for locations
 router.get('/', function (req, res) {
   console.log('Services Controller get called' );
   employment.find({}, function (err, employments) {
