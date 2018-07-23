@@ -5,7 +5,7 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '192.168.1.2'
 var server_port = process.env.PORT || 3000;
 
 
-var server = app.listen(server_port, function() {  
+var server = app.listen(server_port, function() {
   console.log( "Nodejs app Listening on " + server_ip_address + ", port " + server_port )
 });
 
