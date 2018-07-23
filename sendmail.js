@@ -8,14 +8,19 @@ var nodemailer = require('nodemailer');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-    
+
+
+mailparams = function(users,subject,contect) {
+
+}
+
 let mailOptions = {
-          from: '"Krunal Lathiya" <wike1911@gmail.com>', // sender address
+          from: '"Ranpatha" <wike1911@gmail.com>', // sender address
           to: 'vajirawke@gmail.com', // list of receivers
           cc: 'kuvawi@gmail.com',
           subject: 'sample', // Subject line
-          text: '2nd test match between SL and SA', // plain text body
-          html: '<b>NodeJS Email Tutorial</b>' // html body
+          text: '2nd test match between SL and SA' // plain text body
+          //html: '<b>NodeJS Email Tutorial</b>' // html body
       };
 
 router.get('/', function (req, res) {
