@@ -17,6 +17,9 @@ app.use('/itemtypes', ItemTypeController);
 var BusinessController = require('./business/BusinessController');
 app.use('/business', BusinessController);
 
+var EmploymentController = require('./employment/EmploymentController');
+app.use('/services', EmploymentController);
+
 var sendMail = require('./sendmail');
 app.use('/mailer', sendMail);
 
