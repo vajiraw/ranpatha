@@ -4,6 +4,6 @@ var ItemTypeSchema = new mongoose.Schema({
   item_id: String,
   name: String
 });
-mongoose.model('ItemType', ItemTypeSchema);
+mongoose.model('itemType', ItemTypeSchema);
 
-module.exports = mongoose.model('ItemType');
+module.exports = mongoose.model('itemType');

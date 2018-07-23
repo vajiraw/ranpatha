@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const winston = require('winston');
 
 
-var itemType = require('./ItemType');
+var itemType = require('./itemType');
 
 
 router.post('/', function (req, res) {
