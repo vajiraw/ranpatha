@@ -9,7 +9,7 @@ var transporter = nodemailer.createTransport({
         }
 });
 let mailOptions = {
-          from: '"Krunal Lathiya" <wike1911@gmail.com>', // sender address
+          from: '"Ranpatha Admin" <wike1911@gmail.com>', // sender address
           to: 'vajirawke@gmail.com', // list of receivers
           subject: 'sample', // Subject line
           text: '2nd test match between SL and SA', // plain text body
