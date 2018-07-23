@@ -7,8 +7,25 @@ var logger = require('./../logger');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 
-//get locations
-//getserviceTypes
+//get locations : http://192.168.1.2:3000/services/locations
+router.get('/locations', function (req, res) {
+  console.log('locations for services get called' );
+  employment.distinct("location", function (err, employments) {
+      if (err) return res.status(500).send("There was a problem finding the users.");
+      res.status(200).send(employments);
+  });
+});
+
+//getserviceTypes http://192.168.1.2:3000/services/horana/serviceTypes
+router.get('/:location/serviceTypes', function (req, res) {
+  console.log('locations for servicesTypes get called' +req.params.location);
+  employment.distinct("service",{ location: req.params.location },function (err, employments) {
+      if (err) return res.status(500).send("There was a problem finding the users.");
+      res.status(200).send(employments);
+  });
+});
+
+
 
 router.post('/', function (req, res) {
   console.log('Services Controller post called  ' +req.params.order);

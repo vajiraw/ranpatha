@@ -9,6 +9,7 @@ var employmentSchema = new mongoose.Schema({
   conatct: String,
   url : String,
   email : String,
+  service : String,
   displyOrder : Number // order in display
 
 });
