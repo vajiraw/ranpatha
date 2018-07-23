@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var business = require('./Business');
-var BusinessType = require('./BusinessType');
+var business = require('./business');
+var businesstype = require('./businesstype');
 //var logger = require('./logger');
 var logger = require('./../logger');
 
@@ -51,9 +51,7 @@ router.get('/:location/org/:subtype', function (req, res) { ///busniness/:subtyp
 
 // this method used to get BusinessTypes --->http://localhost:3000/business/maintypes
 router.get('/maintypes', function (req, res) {
-
-
-    BusinessType.find({ type: "main" } ,{ status: 0,_id: 0 } , function (err, businesstype) {
+    businesstype.find({ type: "main" } ,{ status: 0,_id: 0 } , function (err, businesstype) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(businesstype);
     }).sort({name:1});
@@ -65,7 +63,7 @@ router.get('/:maintype/subtypes/', function (req, res) {
 
     var maintype = req.params.maintype;
 
-    BusinessType.find({ main_id: '1000' } ,{ status: 0,_id: 0 } , function (err, businesstype) {
+    businesstype.find({ main_id: '1000' } ,{ status: 0,_id: 0 } , function (err, businesstype) {
         if (err) return res.status(500).send("There was a problem finding the users.");
         res.status(200).send(businesstype);
     }).sort({name:1});

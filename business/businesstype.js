@@ -8,6 +8,6 @@ var businesstypesSchema = new mongoose.Schema({
   order: String
 });
 
-mongoose.model('BusinessType', businesstypesSchema);
+mongoose.model('businesstype', businesstypesSchema);
 
-module.exports = mongoose.model('BusinessType');
+module.exports = mongoose.model('businesstype');

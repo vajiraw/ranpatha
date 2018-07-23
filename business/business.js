@@ -12,6 +12,6 @@ var businessSchema = new mongoose.Schema({
   email : String
 });
 
-mongoose.model('Business', businessSchema);
+mongoose.model('business', businessSchema);
 
-module.exports = mongoose.model('Business');
+module.exports = mongoose.model('business');
