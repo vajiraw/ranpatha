@@ -6,7 +6,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const winston = require('winston');
 
 
-var location = require('./Location');
+var location = require('./location');
 
 
 router.post('/', function (req, res) {

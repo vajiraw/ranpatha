@@ -4,6 +4,6 @@ var LocationSchema = new mongoose.Schema({
   loc_id: String,
   name: String
 });
-mongoose.model('Location', LocationSchema);
+mongoose.model('location', LocationSchema);
 
-module.exports = mongoose.model('Location');
+module.exports = mongoose.model('location');
