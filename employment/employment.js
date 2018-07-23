@@ -15,5 +15,5 @@ var employmentSchema = new mongoose.Schema({
 });
 
 
-mongoose.model('Employment', employmentSchema);
-module.exports = mongoose.model('Employment');
+mongoose.model('employment', employmentSchema);
+module.exports = mongoose.model('employment');

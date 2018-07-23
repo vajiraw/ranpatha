@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var employment = require('./Employment');
+var employment = require('./employment');
 var logger = require('./../logger');
 
 router.use(bodyParser.urlencoded({ extended: true }));
+
+router.get('/home', function (req, res) {
+  console.log('locations for services get called' );
+
+      res.status(200).send("welcome to ranp service home");
+
+});
 
 
 //get locations : http://192.168.1.2:3000/services/locations
@@ -25,11 +32,11 @@ router.get('/:location/serviceTypes', function (req, res) {
   });
 });
 
-// get all persons for service and location
-// http://192.168.1.2:3000/services/horana/acc
+// get all persons for service and location who are active
+// http://192.168.1.2:3000/services/horana/accountant
 router.get('/:location/:serviceTypes', function (req, res) {
-  console.log('http://192.168.1.2:3000/services/horana/acc ' );
-  employment.find({location: req.params.location,service:req.params.serviceTypes}, function (err, employments) {
+  console.log('http://192.168.1.2:3000/services/horana/accountant' );
+  employment.find({location: req.params.location,service:req.params.serviceTypes, active:"Active"}, function (err, employments) {
       if (err) return res.status(500).send("There was a problem finding the users.");
       res.status(200).send(employments);
   });
