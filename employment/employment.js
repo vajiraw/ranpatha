@@ -10,7 +10,10 @@ var employmentSchema = new mongoose.Schema({
   url : String,
   email : String,
   service : String,
-  displyOrder : Number // order in display
+  ds : String,
+  providers : {type:Array, default: []},
+  //providers        : {type:Array, default: []},
+
 
 });
 
