@@ -10,6 +10,38 @@ var logger = require('./../logger');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
+router.get('/', function (req, res) {
+  console.log('Business Controller invoked.. ' );
+  res.status(200).send("welcome to ranp service home");
+});
+
+// this method used to get all categories
+// http://localhost:3000/business/category
+router.get('/category', function (req, res) {
+    business.distinct("category" , function (err, businesstype) {
+        if (err) return res.status(500).send("There was a problem finding the users.");
+        res.status(200).send(businesstype);
+    });
+});
+
+//http://localhost:3000/business/automobile/subcategory/
+router.get('/:category/subcategory', function (req, res) {
+    business.distinct("sub_category",{category:req.params.category} , function (err, businesstype) {
+        if (err) return res.status(500).send("There was a problem finding the users.");
+        res.status(200).send(businesstype);
+    });
+});
+
+//http://localhost:3000/business/automobile/auto%20dealers
+router.get('/:category/:subcategory', function (req, res) {
+    business.find({category:req.params.category,sub_category:req.params.subcategory},{_id:0,category:0}, function (err, businesstype) {
+        if (err) return res.status(500).send("There was a problem finding the users.");
+        res.status(200).send(businesstype);
+    });
+});
+
+
+
 
 router.post('/', function (req, res) {
   console.log('Business Controller post called' );
@@ -49,25 +81,10 @@ router.get('/:location/org/:subtype', function (req, res) { ///busniness/:subtyp
 });
 
 
-// this method used to get BusinessTypes --->http://localhost:3000/business/maintypes
-router.get('/maintypes', function (req, res) {
-    businesstype.find({ type: "main" } ,{ status: 0,_id: 0 } , function (err, businesstype) {
-        if (err) return res.status(500).send("There was a problem finding the users.");
-        res.status(200).send(businesstype);
-    }).sort({name:1});
-});
 
 
-//This method is used to get subtypes for a business type  http://localhost:3000/business/1000/subtypes/
-router.get('/:maintype/subtypes/', function (req, res) {
 
-    var maintype = req.params.maintype;
 
-    businesstype.find({ main_id: '1000' } ,{ status: 0,_id: 0 } , function (err, businesstype) {
-        if (err) return res.status(500).send("There was a problem finding the users.");
-        res.status(200).send(businesstype);
-    }).sort({name:1});
-});
 
 
 

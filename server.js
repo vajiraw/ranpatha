@@ -1,6 +1,7 @@
 // server.js
 var app = require('./app');
 
+
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '192.168.1.2'
 var server_port = process.env.PORT || 3000;
 
